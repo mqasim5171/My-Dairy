@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Diary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome, {{ current_user.username }}!</h1>
+    <h2>Your Diary Entries</h2>
+
+    <form method="POST">
+        <input type="text" name="title" placeholder="Entry Title" required>
+        <textarea name="content" placeholder="Write your diary entry here..." required></textarea>
+        <button type="submit">Add Entry</button>
+    </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div>
+                {% for category, message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="entries">
+        {% for entry in entries %}
+            <div class="entry">
+                <h3>{{ entry.title }}</h3>
+                <p>{{ entry.content }}</p>
+                <small>Posted on: {{ entry.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+            </div>
+        {% else %}
+            <p>No entries yet! Start writing your first diary entry.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
