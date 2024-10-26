@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -105,3 +106,16 @@ def diary():
 
     entries = DiaryEntry.query.filter_by(user_id=current_user.id).order_by(DiaryEntry.date_posted.desc()).all()
     return render_template('diary.html', entries=entries)
+=======
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello from Flask!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
+>>>>>>> 156775cbf5e39ee6fc8f2151964b13b0ec7c125a

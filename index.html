@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Diary Login</title>
     <style>
         body {
@@ -84,3 +85,36 @@
 </html>
 
 
+=======
+    <title>Emotion Jar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Read Me When</h1>
+    </header>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2 id="feelingText">How are you feeling?</h2>
+        <div class="emotions">
+            <button class="emotion-button" onclick="showQuote('happy')">Happy</button>
+            <button class="emotion-button" onclick="showQuote('sad')">Sad</button>
+            <button class="emotion-button" onclick="showQuote('anxious')">Anxious</button>
+            <button class="emotion-button" onclick="showQuote('depressed')">Depressed</button>
+            <button class="emotion-button" onclick="showQuote('angry')">Angry</button>
+        </div>
+
+        <!-- Quote Box -->
+        <div class="quote-box" id="quoteBox">
+            <p id="quote"></p>
+        </div>
+        <!-- Back Button -->
+        <button class="back-button" onclick="goBack()" style="display: none;">Back</button> <!-- Hidden initially -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+>>>>>>> 156775cbf5e39ee6fc8f2151964b13b0ec7c125a
