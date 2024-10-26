@@ -174,18 +174,24 @@ diary-app/
 
 
    
-3. **Register Page**: Easy-to-follow registration form
+2. **Register Page**: Easy-to-follow registration form
 
    ![image](https://github.com/user-attachments/assets/60157a0b-a7ce-4875-baf0-a63e2deb694c)
 
-5. **Diary Page**: Page to add and view diary entries.
+3. **Diary Page**: Page to add and view diary entries.
 
    ![image](https://github.com/user-attachments/assets/454bc964-5247-452d-bbbe-3294fac2f0ba)
 
-7. **Emotion Jar**: Motivational quotes based on emotions, with options like Happy, Sad, Anxious, Depressed, and Angry.
+4. **ALL Diary Pages**: Contains all previous added pages.
+
+   ![image](https://github.com/user-attachments/assets/9a50b87b-a7c4-481f-a928-c4e5cbcb1239)
 
 
-![image](https://github.com/user-attachments/assets/1101ef9b-ae62-4584-9f4f-95004ffe6b98)
+6. **Emotion Jar**: Motivational quotes based on emotions, with options like Happy, Sad, Anxious, Depressed, and Angry.
+
+
+![image](https://github.com/user-attachments/assets/c5691d21-766a-4ad9-b3b9-d30155fc4772)
+
 
 
 ---
