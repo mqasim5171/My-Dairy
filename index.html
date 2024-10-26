@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diary Login</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
         body {
             font-family: 'Georgia', serif;
             background-color: #f8b8c0; /* Pink background */
-            background-image: url('https://path-to-your-diary-icon-image'); /* Add a background image of small diaries */
-            background-size: 50px; /* Size of the diary icons */
-            background-repeat: repeat;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,17 +17,18 @@
         }
         .login-container {
             background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 350px;
             padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            background-image: linear-gradient(145deg, #ffecd2, #fcb69f); /* Soft color gradient inside the container */
+            background-image: linear-gradient(145deg, #ffecd2, #fcb69f); /* Soft color gradient */
         }
         h2 {
             font-family: 'Pacifico', cursive;
             color: #333;
             margin-bottom: 20px;
+            font-size: 1.8em;
         }
         input[type="text"], input[type="password"] {
             width: 100%;
@@ -38,30 +37,30 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 16px;
-            font-family: 'Georgia', serif;
+            box-sizing: border-box;
         }
-        input[type="submit"] {
+        button {
             width: 100%;
             padding: 12px;
-            background-color: #ff6f61; /* Bright orange button */
-            color: #fff;
+            background-color: #ff6f61;
+            color: white;
             border: none;
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        input[type="submit"]:hover {
+        button:hover {
             background-color: #e74c3c;
         }
-        .message {
-            color: #e74c3c;
-            margin-top: 15px;
-        }
-        .footer {
+        p {
             margin-top: 20px;
-            font-size: 14px;
             color: #555;
+        }
+        .flash-messages {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -69,18 +68,22 @@
 <body>
     <div class="login-container">
         <h2>My Diary</h2>
-        <form method="POST" action="/login">
+        <form action="{{ url_for('login') }}" method="POST">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Log In">
+            <button type="submit">Log In</button>
         </form>
-        
-        
-        <div class="footer">
-            <p>Welcome back to your personal space.</p>
-        </div>
+        <p>New user? <a href="{{ url_for('register') }}">Register here</a></p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
     </div>
 </body>
 </html>
-
-
