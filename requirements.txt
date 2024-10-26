@@ -2,4 +2,9 @@ Django>=3.0,<4.0
 Flask>=2.0
 gunicorn
 supervisor
+Flask
+flask_sqlalchemy
+flask_login
+flask_bcrypt
+
 

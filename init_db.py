@@ -1,0 +1,86 @@
+from app import app, db  # Import app and db from your main app file
+from models import PositiveNote
+
+# List of notes with predefined emotions
+notes_data = [
+    {"content": "Keep pushing forward, you're doing amazing!", "emotion": "happy"},
+    {"content": "Every day is a new opportunity to grow.", "emotion": "happy"},
+    {"content": "You have the power to change your life.", "emotion": "happy"},
+    {"content": "Believe in yourself, you've got this!", "emotion": "happy"},
+    {"content": "Smile and enjoy the little things.", "emotion": "happy"},
+    {"content": "Focus on the positive moments.", "emotion": "happy"},
+    {"content": "You're stronger than you think.", "emotion": "happy"},
+    {"content": "Take life one step at a time.", "emotion": "happy"},
+    {"content": "Embrace the journey with a smile.", "emotion": "happy"},
+    {"content": "Cherish each moment, no matter how small.", "emotion": "happy"},
+    {"content": "It’s okay to feel down; take things slow.", "emotion": "sad"},
+    {"content": "Every struggle you face builds resilience.", "emotion": "sad"},
+    {"content": "Take time to process your feelings.", "emotion": "sad"},
+    {"content": "Crying is a strength, not a weakness.", "emotion": "sad"},
+    {"content": "Healing takes time; be patient with yourself.", "emotion": "sad"},
+    {"content": "This too shall pass; brighter days are coming.", "emotion": "sad"},
+    {"content": "Allow yourself to feel, then let go.", "emotion": "sad"},
+    {"content": "Remember, you’re not alone.", "emotion": "sad"},
+    {"content": "Every storm will eventually clear.", "emotion": "sad"},
+    {"content": "Give yourself permission to rest and recover.", "emotion": "sad"},
+    {"content": "Breathe deeply; you’re doing your best.", "emotion": "anxious"},
+    {"content": "One day at a time; progress over perfection.", "emotion": "anxious"},
+    {"content": "You are capable of overcoming this challenge.", "emotion": "anxious"},
+    {"content": "Focus on what you can control.", "emotion": "anxious"},
+    {"content": "Keep pushing forward despite the fear.", "emotion": "anxious"},
+    {"content": "Anxiety doesn’t define your worth.", "emotion": "anxious"},
+    {"content": "Take small steps and celebrate each one.", "emotion": "anxious"},
+    {"content": "Focus on your breathing; stay grounded.", "emotion": "anxious"},
+    {"content": "Believe in your resilience.", "emotion": "anxious"},
+    {"content": "Stay in the present moment; let go of worries.", "emotion": "anxious"},
+    {"content": "You are valued; this pain will pass.", "emotion": "depressed"},
+    {"content": "Hope is around the corner, even when it feels far.", "emotion": "depressed"},
+    {"content": "Reach out; there’s always someone who cares.", "emotion": "depressed"},
+    {"content": "You are stronger than the thoughts trying to bring you down.", "emotion": "depressed"},
+    {"content": "Every breath is a step forward.", "emotion": "depressed"},
+    {"content": "Your story is important and worth telling.", "emotion": "depressed"},
+    {"content": "Find light in the small things.", "emotion": "depressed"},
+    {"content": "Your struggles don’t define you.", "emotion": "depressed"},
+    {"content": "Give yourself grace and time.", "emotion": "depressed"},
+    {"content": "Be proud of your survival; you’re a warrior.", "emotion": "depressed"},
+    {"content": "Channel your energy in positive ways.", "emotion": "angry"},
+    {"content": "Take a deep breath before reacting.", "emotion": "angry"},
+    {"content": "Give yourself space to calm down.", "emotion": "angry"},
+    {"content": "Focus your energy on finding solutions.", "emotion": "angry"},
+    {"content": "Choose peace over conflict whenever possible.", "emotion": "angry"},
+    {"content": "Redirect your anger into productive actions.", "emotion": "angry"},
+    {"content": "Count to ten and breathe slowly.", "emotion": "angry"},
+    {"content": "Remember, not every battle is worth fighting.", "emotion": "angry"},
+    {"content": "Forgiveness is for your own peace.", "emotion": "angry"},
+    {"content": "Think before you act; respond with intention.", "emotion": "angry"},
+    # Adding more happy notes to reach 100+
+    {"content": "Happiness is a journey, not a destination.", "emotion": "happy"},
+    {"content": "Laughter is the best medicine.", "emotion": "happy"},
+    {"content": "Cherish the moments that make you smile.", "emotion": "happy"},
+    {"content": "Surround yourself with positivity.", "emotion": "happy"},
+    {"content": "Happiness is contagious; spread it.", "emotion": "happy"},
+    {"content": "A grateful heart finds happiness everywhere.", "emotion": "happy"},
+    {"content": "Focus on the silver linings in life.", "emotion": "happy"},
+    {"content": "You are a light in this world.", "emotion": "happy"},
+    {"content": "Spread kindness and joy wherever you go.", "emotion": "happy"},
+    {"content": "Life is a beautiful gift.", "emotion": "happy"},
+    {"content": "Positive thoughts bring positive things.", "emotion": "happy"},
+    {"content": "Every smile adds a bit more happiness.", "emotion": "happy"},
+    {"content": "Joy is found in the little things.", "emotion": "happy"},
+    {"content": "Choose happiness every day.", "emotion": "happy"},
+    {"content": "Find beauty in simplicity.", "emotion": "happy"},
+    {"content": "Celebrate small wins daily.", "emotion": "happy"},
+    {"content": "Your happiness matters.", "emotion": "happy"},
+    {"content": "Live for the moments you can’t put into words.", "emotion": "happy"},
+    {"content": "Appreciate every little moment.", "emotion": "happy"},
+    {"content": "You deserve to feel joy every day.", "emotion": "happy"},
+]
+
+# Populate the database with notes
+with app.app_context():  # Use app.app_context() directly
+    db.create_all()  # Ensure tables are created
+    for note_data in notes_data:
+        note = PositiveNote(content=note_data["content"], emotion=note_data["emotion"])
+        db.session.add(note)
+    db.session.commit()
+    print("100+ positive notes added to the database with predefined emotions.")

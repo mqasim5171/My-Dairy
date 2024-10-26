@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Jar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Read Me When...</h1>
+    </header>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2 id="feelingText">How are you feeling?</h2>
+
+        <!-- Emotion Buttons -->
+        <div class="emotions">
+            <a href="{{ url_for('jar', emotion='happy') }}" class="emotion-button">Happy 😊</a>
+            <a href="{{ url_for('jar', emotion='sad') }}" class="emotion-button">Sad 😢</a>
+            <a href="{{ url_for('jar', emotion='anxious') }}" class="emotion-button">Anxious 😰</a>
+            <a href="{{ url_for('jar', emotion='depressed') }}" class="emotion-button">Depressed 😔</a>
+            <a href="{{ url_for('jar', emotion='angry') }}" class="emotion-button">Angry 😡</a>
+        </div>
+
+        <!-- Quote Box -->
+        <div class="quote-box show" id="quoteBox">
+            <p id="quote">{{ note }}</p> <!-- Display the note here -->
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle visibility of the quote box, if needed
+        document.getElementById("quoteBox").classList.add("show");
+    </script>
+</body>
+</html>

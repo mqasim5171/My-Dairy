@@ -1,0 +1,110 @@
+/* Global Styling */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FCE1E8;
+    font-family: Arial, sans-serif;
+    color: rgb(219, 22, 114);
+}
+
+/* Header Styling */
+header {
+    background-color: rgb(219, 22, 114);
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Content Below Header */
+.content {
+    margin-top: 120px; /* Pushes content below the header */
+    text-align: center;
+}
+
+.content h2 {
+    font-size: 2em;
+}
+
+/* Emotion Button Styling */
+.emotions {
+    margin-top: 30px;
+}
+
+.emotion-button {
+    background-color: rgb(219, 22, 114);
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.emotion-button:hover {
+    background-color: rgb(173, 15, 89);
+}
+
+/* Quote Box Styling */
+.quote-box {
+    background-color: rgb(219, 22, 114);
+    padding: 40px 20px;
+    margin-top: 40px;
+    border-radius: 30px;
+    max-width: 80%;
+    min-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden until an emotion is clicked */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0; /* Start hidden for animation */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+}
+
+.quote-box.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.quote-box p {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+/* Back Button Styling */
+.back-button {
+    background-color: rgb(219, 22, 114);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none; /* Hidden initially */
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: rgb(173, 15, 89);
+}

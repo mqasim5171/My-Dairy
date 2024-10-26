@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Diary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* General styles for baby pink theme */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Navbar styling */
+        .navbar {
+            background-color: #ffb6c1;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            color: #f8f9fa;
+        }
+        /* Container styling */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #ff6b81;
+        }
+        /* Diary entry form styled like a diary page */
+        .entry-form {
+            background-color: #ffecf0;
+            padding: 15px;
+            border: 2px solid #ffb6c1;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .entry-form textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            border: none;
+            resize: vertical;
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: 'Georgia', serif;
+            background-color: #fff0f5;
+            border-radius: 8px;
+        }
+        .entry-form button {
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        .entry-form button:hover {
+            background-color: #e85c73;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="{{ url_for('diary') }}">Home</a>
+        <a href="{{ url_for('my_diary') }}">My Diary</a>
+        <a href="{{ url_for('jar') }}">Open Jar</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h1>Write a New Diary Entry</h1>
+        
+        <!-- Diary Entry Form -->
+        <div class="entry-form">
+            <form method="POST" action="{{ url_for('diary') }}">
+                <textarea name="content" placeholder="Write your thoughts here..." required></textarea>
+                <button type="submit">Add Note</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
